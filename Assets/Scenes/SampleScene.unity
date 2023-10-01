@@ -761,6 +761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  jump_speed: 0
 --- !u!1 &1312366462
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,7 +908,7 @@ GameObject:
   - component: {fileID: 1363621897}
   - component: {fileID: 1363621896}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

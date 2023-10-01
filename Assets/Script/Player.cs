@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] int speed; // player speed variable
+    [SerializeField] int jump_speed; // player jump speed variable, for the next assignment
 
     Rigidbody rb; // rigid body stuff, this is for the next assignment
 
@@ -22,7 +23,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.transform.position += mov_dir * (speed * Time.deltaTime); // changes the direction
+        transform.position += mov_dir * (speed * Time.deltaTime); // changes the direction
     }
 
     public void Jump() // Jump function, we did work on it in this weeks tutorial, but thats on a different project
