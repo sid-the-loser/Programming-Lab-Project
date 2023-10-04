@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] int speed; // player speed variable
-    [SerializeField] int jump_speed; // player jump speed variable, for the next assignment
+    [SerializeField] float speed; // player speed variable
+    [SerializeField] float jump_speed; // player jump speed variable, for the next assignment
+
+    [SerializeField] int score; // score of the player
+
+    bool is_grounded = false; // checks if player is grounded
+
+    Quaternion locked_rotation;
 
     Rigidbody rb; // rigid body stuff, this is for the next assignment
 
@@ -23,12 +30,29 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.rotation = locked_rotation; // locking the direction so i can check ground better
+
+        is_grounded = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 1);
+        /*
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 1))
+        {
+            is_grounded = true;
+        }
+        else
+        {
+            is_grounded = false;
+        }
+        */
+
         transform.position += mov_dir * (speed * Time.deltaTime); // changes the direction
     }
 
     public void Jump() // Jump function, we did work on it in this weeks tutorial, but thats on a different project
     {
-        Debug.Log("I jumped!");
+        if (is_grounded)
+        {
+            rb.AddForce(Vector3.up * jump_speed, ForceMode.Impulse);
+        }
     }
 
     public void Crouch() // Crouch function to be worked on later
@@ -40,5 +64,10 @@ public class Player : MonoBehaviour
     {
         mov_dir.x = Direction.x; // this sin was done to fix issues between Vector2 and Vector3
         mov_dir.z = Direction.y;
+    }
+
+    public void addScore() // function to add 1 to score variable (I know, its a sin, could have done it better)
+    {
+        score++;
     }
 }
