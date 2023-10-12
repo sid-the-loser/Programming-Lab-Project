@@ -21,7 +21,9 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player")) // checks if it was the player
         {
             Destroy(this.gameObject); // destroys the coin
+
             other.SendMessage("addScore"); // runs "addScore" function in Player script
+                                           // Code reference from: https://forum.unity.com/threads/accessing-variables-from-another-object-solved.51143/
 
         }
     }

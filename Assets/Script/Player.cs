@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
         transform.position += mov_dir * (speed * Time.deltaTime); // changes the direction
     }
 
-    public void Jump() // Jump function, we did work on it in this weeks tutorial, but thats on a different project
+    public void Jump()
     {
         if (is_grounded)
         {
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
         mov_dir.z = Direction.y;
     }
 
-    public void addScore() // function to add 1 to score variable (I know, its a sin, could have done it better)
+    void addScore() // function to add 1 to score variable (I know, its a sin, could have done it better)
     {
         score++;
     }
