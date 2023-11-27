@@ -22,8 +22,7 @@ public class Coin : MonoBehaviour
         {
             Destroy(this.gameObject); // destroys the coin
 
-            other.SendMessage("addScore"); // runs "addScore" function in Player script
-                                           // Code reference from: https://forum.unity.com/threads/accessing-variables-from-another-object-solved.51143/
+            other.GetComponent<Player>().addScore(); // runs "addScore" function in Player script
 
         }
     }

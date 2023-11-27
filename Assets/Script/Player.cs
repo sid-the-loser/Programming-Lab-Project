@@ -66,8 +66,9 @@ public class Player : MonoBehaviour
         mov_dir.z = Direction.y;
     }
 
-    void addScore() // function to add 1 to score variable (I know, its a sin, could have done it better)
+    public void addScore() // function to add 1 to score variable (I know, its a sin, could have done it better)
     {
         score++;
     }
+
 }
